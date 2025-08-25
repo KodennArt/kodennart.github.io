@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Politique de confidentialité – KodennArt</title>
+<meta name="robots" content="noindex"> <!-- retire ce noindex quand tu es prêt -->
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<style>
+:root{--ka-bg:#002255;--ka-accent:#fdc300;--ka-ink:#eaf1ff;--ka-ink-2:#adc0ff;--radius:18px;--wrapper:clamp(16px,3vw,28px);}
+html,body{height:100%}
+body{margin:0;background:var(--ka-bg);color:var(--ka-ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrapper{max-width:1000px;margin-inline:auto;padding-inline:var(--wrapper)}
+header{position:sticky;top:0;z-index:10;background:rgba(0,8,32,.55);backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ka-ink);text-decoration:none}
+.brand img{width:34px;height:34px;display:block}
+.brand span{font-weight:700;letter-spacing:.4px}
+main{padding:48px 0 64px}
+h1{font-size:clamp(1.9rem,1.4rem + 2vw,2.8rem);line-height:1.1;margin:.2rem 0 1rem}
+h2{font-size:clamp(1.25rem,1.05rem + 1vw,1.7rem);margin:1.5rem 0 .5rem}
+p,li{color:var(--ka-ink);opacity:.95;line-height:1.65}
+a{color:var(--ka-accent)}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:22px}
+footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.08);color:var(--ka-ink-2)}
+footer a{color:var(--ka-ink)}
+</style>
+</head>
+<body>
+<header>
+<div class="wrapper nav">
+<a href="/index.html" class="brand" aria-label="Retour à l'accueil">
+<img src="./images/Logo_KodennArt.webp" alt="Logo KodennArt" />
+<span>KodennArt</span>
+</a>
+<nav class="links"><a href="/index.html#contact" style="color:var(--ka-ink-2);text-decoration:none">Contact</a></nav>
+</div>
+</header>
+
+
+<main class="wrapper">
+<h1>Politique de confidentialité</h1>
+<div class="card">
+<h2>Données collectées</h2>
+<p>Le formulaire de contact collecte uniquement les informations nécessaires pour répondre à votre demande (nom, adresse email, contenu du message).</p>
+
+
+<h2>Utilisation des données</h2>
+<p>Vos données sont utilisées exclusivement pour vous recontacter et traiter votre demande. Elles ne sont ni revendues, ni transmises à des tiers.</p>
+
+
+<h2>Durée de conservation</h2>
+<p>Les messages sont conservés le temps nécessaire au suivi de l’échange, puis supprimés au maximum 12 mois après le dernier contact.</p>
+
+
+<h2>Vos droits (RGPD)</h2>
+<p>Vous disposez d’un droit d’accès, de rectification et de suppression de vos données. Pour l’exercer, contactez : <a href="mailto:kodennart@gmail.com">kodennart@gmail.com</a>.</p>
+
+
+<h2>Cookies</h2>
+<p>Ce site n’utilise que des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de tracking tiers n’est déposé sans votre consentement.</p>
+
+
+<h2>Hébergement</h2>
+<p>Ce site est actuellement hébergé par GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr Street, San Francisco, CA 94107, États‑Unis). Une migration vers un hébergeur en France (o2switch) est prévue.</p>
+</div>
+</main>
+
+
+<footer>
+<div class="wrapper" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+<small>© <span id="year"></span> KodennArt — Yann Cotard • SIRET 91 972 267 800 019</small>
+<small><a href="/mentionsLegales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></small>
+</div>
+</footer>
+
+
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

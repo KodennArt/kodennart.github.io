@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KodennArt — Développeur Web Créatif à Paris | Landing Page</title>
+  <meta name="description" content="KodennArt conçoit des expériences web puissantes : sites vitrine haut de gamme, 3D/Three.js, SEO, performance et branding. Réservez un appel découverte." />
+  <meta name="author" content="KodennArt" />
+  <meta name="theme-color" content="#002255" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="KodennArt" />
+  <meta property="og:title" content="KodennArt — Développeur Web Créatif à Paris" />
+  <meta property="og:description" content="Sites web premium, 3D/Three.js, SEO & performance. Parlons de votre projet." />
+  <meta property="og:image" content="./images/og-kodennart.jpg" />
+  <meta property="og:url" content="https://www.kodennart.fr/" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <!--favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+
+  <!-- Preload your logo if available -->
+  <!--<link rel="preload" as="image" href="./images/logo-kodennart.svg" />-->
+
+  <!-- CSS: single-file, modern, accessible -->
+
+  
+  <style>
+    :root{
+      /* Brand */
+      --ka-bg:#002255;          /* home bg (validé 2025-04-15) */
+      --ka-accent:#fdc300;      /* accent (validé) */
+      --ka-secondary:#d00072;   /* secondary (validé) */
+      --ka-ink:#eaf1ff;         /* on-dark text */
+      --ka-ink-2:#adc0ff;       /* muted on-dark */
+      --ka-surface:#07163a;     /* cards on dark */
+      --ka-ok:#13c296;
+      --ka-danger:#ff6363;
+
+      /* Typography scale */
+      --step--1: clamp(0.88rem, 0.84rem + 0.2vw, 0.98rem);
+      --step-0: clamp(1rem, 0.96rem + 0.3vw, 1.15rem);
+      --step-1: clamp(1.25rem, 1.12rem + 0.9vw, 1.7rem);
+      --step-2: clamp(1.55rem, 1.34rem + 1.5vw, 2.2rem);
+      --step-3: clamp(2rem, 1.7rem + 2.4vw, 3rem);
+      --step-4: clamp(2.5rem, 2rem + 3.6vw, 4rem);
+
+      /* Layout */
+      --radius: 18px;
+      --radius-lg: 26px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-soft: 0 6px 20px rgba(0,0,0,.25);
+      --maxw: 1200px;
+      --pad: clamp(16px, 3vw, 28px);
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(253,195,0,.15), transparent 60%),
+                  radial-gradient(1000px 700px at 10% 0%, rgba(208,0,114,.18), transparent 60%),
+                  var(--ka-bg);
+      color:var(--ka-ink);
+      letter-spacing:.2px;
+    }
+
+    .wrapper{max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad);} 
+
+    /* ======= Header / Nav ======= */
+    header{position: sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:rgba(0, 8, 32, .55); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:66px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ka-ink)}
+    .brand img{width:34px; height:34px; display:block}
+    .brand span{font-weight:700; font-size:1.05rem; letter-spacing:.5px}
+    .nav a{color:var(--ka-ink-2); text-decoration:none; font-size:.95rem}
+    .nav a:hover{color:var(--ka-ink)}
+    .cta{background:linear-gradient(90deg,var(--ka-accent), #ffe27a); color: #2e07f1; ; font-weight:700; padding:.7rem 1.1rem; border-radius:9999px; box-shadow: var(--shadow-soft); border:0;cursor: pointer;}
+    .cta:hover{filter:brightness(1.05)}
+
+    /* ======= Hero ======= */
+    .hero{position:relative; padding: calc(14vh) 0 calc(10vh)}
+    .eyebrow{color:var(--ka-accent); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
+    .hero h1{font-size:var(--step-4); line-height:1.05; margin:.35rem 0; max-width:18ch}
+    .lead{font-size:var(--step-1); color:var(--ka-ink-2); max-width:60ch}
+    .hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
+    .ghost{background:transparent; color:var(--ka-accent); border:1px solid rgba(253,195,0,.45); padding:.7rem 1.1rem; border-radius:9999px}
+
+    /* Decorative beam */
+    .beam{position:absolute; inset:auto 0 -3rem auto; width:min(900px, 80vw); height:240px; background: radial-gradient(50% 50% at 50% 50%, rgba(253,195,0,.18), transparent 70%); filter: blur(20px); pointer-events:none}
+
+    /* ======= Social proof ======= */
+    .logos{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:20px; align-items:center; opacity:.9; margin-top:34px}
+    .logos figure{margin:0;  padding: 20px 24px; border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); background:rgba(255,255,255,.03)}
+    .logos img{display:block;max-width: 100%;height: clamp(50px, 7vw, 100px); /* ← plus grand */
+    /*opacity:0*/;object-fit: contain;margin: 0 auto;}
+
+    /* ======= Sections ======= */
+    section{padding: 64px 0}
+    h2{font-size:var(--step-3); line-height:1.1; margin:0 0 10px}
+    .muted{color:var(--ka-ink-2)}
+
+    /* Services */
+    .grid{display:grid; gap:20px}
+    @media (min-width: 760px){ .grid.cols-3{grid-template-columns:repeat(3, minmax(0,1fr));} }
+    .card{background:var(--ka-surface); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-lg); padding:22px; box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .4rem; font-size:var(--step-1)}
+    .card p{margin:0}
+
+    /* Portfolio */
+    .portfolio-grid{display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));}
+    .thumb{aspect-ratio: 16/10; border-radius:var(--radius); background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); display:grid; place-items:center; position:relative; overflow:hidden}
+    .thumb svg{width:65%; opacity:.8}
+    .badge{position:absolute; top:10px; left:10px; background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.2); color:var(--ka-ink); padding:.25rem .6rem; border-radius:999px; font-size:.78rem}
+
+    /* Process */
+    .steps{counter-reset: s;}
+    .step{display:flex; gap:14px; align-items:flex-start}
+    .step + .step{margin-top:18px}
+    .step:before{counter-increment:s; content:counter(s); display:grid; place-items:center; width:34px; height:34px; border-radius:999px; background:linear-gradient(180deg, var(--ka-secondary), var(--ka-accent)); color:#1b1500; font-weight:800}
+
+    /* Testimonials */
+    .testi{display:grid; gap:20px}
+    @media (min-width: 760px){ .testi{grid-template-columns:1fr 1fr} }
+    blockquote{margin:0; padding:20px; border-left:4px solid var(--ka-accent); background:rgba(255,255,255,.04); border-radius:var(--radius)}
+    blockquote footer{margin-top:10px; font-size:.95rem; color:var(--ka-ink-2)}
+
+    /* Contact */
+    form{display:grid; gap:12px; max-width:680px}
+    label{display:grid; gap:6px}
+    input, textarea{background:#0a1b44; color:var(--ka-ink); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:.9rem}
+    input::placeholder, textarea::placeholder{color:#9fb0e3}
+    .note{font-size:.9rem; color:var(--ka-ink-2)}
+    button[aria-busy="true"] { opacity: .7; pointer-events: none; }
+
+
+    /* Footer */
+    footer{padding:36px 0; border-top:1px solid rgba(255,255,255,.08); color:var(--ka-ink-2)}
+    footer a{color:var(--ka-ink)}
+
+    /* Accessibility: reduced motion */
+    @media (prefers-reduced-motion: no-preference){
+      .pulse{animation:pulse 2.8s ease-in-out infinite}
+    }
+    @keyframes pulse{ 0%,100%{ transform:scale(1)} 50%{ transform:scale(1.02)} }
+    /* === Mobile tuning (≤ 760px) === */
+@media (max-width: 760px){
+  /* Hero spacing un peu plus court */
+  .hero{ padding: 12vh 0 6vh; }
+
+  /* Le halo/beamer gênant → on le coupe (ou baisse l'opacité si tu préfères) */
+  .beam{ display:none; }
+  /* Variante douce :
+  .beam{ filter: blur(14px) brightness(.9); opacity:.35; }
+  */
+
+  /* Grille des logos : 2 colonnes + moins d'écart */
+  .logos{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .logos figure{
+    padding: 16px 18px;
+    /* option: fond un poil plus opaque pour la lisibilité */
+    background: rgba(255,255,255,.06);
+  }
+  /* Logos plus grands sur mobile */
+  .logos img{
+    display:block;
+    height: clamp(56px, 18vw, 110px); /* ← plus généreux en mobile */
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+/* Priorité au CTA, même dans le header */
+a.cta { color:#1b1500; }                 /* option A: texte sombre */
+.nav a.cta { color:#1b1500; }            /* + spécifique que .nav a */
+
+a.cta:hover, .nav a.cta:hover { 
+  filter: brightness(1.05); 
+  color:#ffffff; 
+}
+
+/* Lisibilité des vignettes portfolio */
+.portfolio-grid .thumb{ color: #fdc300; } 
+.portfolio-grid .thumb svg{ opacity: 1; }        /* enlève l’affaiblissement */
+.portfolio-grid .thumb svg text{
+  fill: currentColor;
+  opacity: 1;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: rgba(0,0,0,.7);  /* léger contour sombre pour garder la lisibilité */
+  stroke-width: .5;             /* discret mais efficace */
+}
+.portfolio-grid .thumb svg{
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.6));
+}
+
+.portfolio-grid .thumb svg text {
+  fill: var(--ka-ink); /* blanc */
+  font-weight: 600;
+  transition: fill .3s ease;
+}
+.portfolio-grid .thumb:hover svg text {
+  fill: #fdc300;       /* jaune accent */
+  font-weight: 700;
+}
+/* Bandeau cookies */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: rgba(0,8,32,.95);
+  color: var(--ka-ink);
+  padding: 16px var(--pad);
+  font-size: .95rem;
+  display: none; /* caché par défaut */
+  z-index: 999;
+  box-shadow: 0 -2px 8px rgba(0,0,0,.4);
+}
+.cookie-banner p {
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+.cookie-banner a {
+  color: var(--ka-accent);
+  text-decoration: underline;
+}
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cookie-actions .cta {
+  padding: .5rem 1rem;
+  font-size: .9rem;
+}
+.cookie-actions .ghost {
+  border: 1px solid rgba(253,195,0,.45);
+  padding: .5rem 1rem;
+  font-size: .9rem;
+  cursor: pointer;
+}
+  </style>
+</head>
+<!-- Bandeau cookies -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+  <p>
+    Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement. 
+    Aucun cookie publicitaire n’est déposé sans votre consentement. 
+    <a href="/confidentialite.html">En savoir plus</a>
+  </p>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="cta">Accepter</button>
+    <button id="cookie-refuse" class="ghost">Refuser</button>
+  </div>
+</div>
+<body>
+  <header>
+    <div class="wrapper nav" role="navigation" aria-label="Navigation principale">
+      <a href="#top" class="brand" aria-label="Retour à l'accueil">
+        <img src="./images/logo_kodennart.webp" alt="Logo KodennArt" />
+        <span>KodennArt</span>
+      </a>
+      <nav class="links" aria-label="Liens de page">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Réalisations</a>
+        <a href="#process">Méthode</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="#contact">Demander un devis</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero wrapper">
+      <p class="eyebrow">Développeur Web Créatif à Paris</p>
+      <h1 class="pulse">Landing page rapide aujourd'hui.<br/>Site 3D immersif demain.</h1>
+      <p class="lead">Je conçois des sites web élégants, rapides et orientés business. Puis je pousse l'expérience plus loin avec des interactions 3D (Three.js) quand votre marque est prête.</p>
+      <div class="hero-ctas">
+        <a class="cta" href="#contact">Réserver un appel découverte</a>
+        <a class="ghost" href="#portfolio" aria-label="Voir des projets">Voir des projets</a>
+      </div>
+      <div class="beam" aria-hidden="true"></div>
+
+      <!-- Social proof minimal -->
+      <div class="logos" aria-label="Clients & références (sélection)">
+        <figure><img src="./images/refs/LOGO-ACJ-IDF.webp" alt="À Cœur Joie – Île‑de‑France" loading: lazy /></figure>
+        <figure><img src="./images/refs/bambou_dor.webp" alt="Bambou d'Or" loading: lazy /></figure>
+        <figure><img src="./images/refs/ParisianChauffeurs.webp" alt="Parisian Chauffeur" loading: lazy /></figure>
+        <figure><img src="./images/refs/Rentall.webp" alt="Rent'All Levage" loading: lazy /></figure>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrapper">
+        <header style="margin-bottom:14px">
+          <h2>Ce que je construis</h2>
+          <p class="muted">Des bases solides aujourd'hui, une scène 3D demain.</p>
+        </header>
+
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Sites vitrines premium</h3>
+            <p>HTML/CSS/JS propres, SEO technique, performances Lighthouse 90+ et accessibilité soignée.</p>
+          </article>
+          <article class="card">
+            <h3>Expériences 3D (Three.js)</h3>
+            <p>Effets immersifs, interactions contrôlées au clavier/souris, animations optimisées (≤10s d'intro, option skip).</p>
+          </article>
+          <article class="card">
+            <h3>Branding & conversion</h3>
+            <p>Positionnement, copy persuasif, CTA clairs, tracking prêt pour vos campagnes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="wrapper">
+        <header style="margin-bottom:14px">
+          <h2>Réalisations récentes</h2>
+          <p class="muted">Un aperçu. D'autres projets sur demande.</p>
+        </header>
+        <div class="portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="wrapper">
+        <h2>Méthode courte & efficace</h2>
+        <div class="steps">
+          <div class="step"><div><strong>Appel découverte (30 min)</strong><br><span class="muted">Objectifs, audience, délais, budget.</span></div></div>
+          <div class="step"><div><strong>Structure & maquette</strong><br><span class="muted">Wireframe + copy. Validation rapide.</span></div></div>
+          <div class="step"><div><strong>Intégration</strong><br><span class="muted">HTML sémantique, CSS moderne, JS propre.</span></div></div>
+          <div class="step"><div><strong>Mise en ligne & suivi</strong><br><span class="muted">SEO de base, analytics, itérations.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="temoignages">
+      <div class="wrapper">
+        <h2>Ils en parlent le mieux</h2>
+        <div class="testi" id="testiWrap"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrapper">
+        <h2>Parlons de votre projet</h2>
+        <p class="muted">Réponse sous 24h ouvrées. Je suis basé à Paris.</p>
+        <form action="https://formspree.io/f/xwpnkeal" method="POST" id="contactForm">
+          <label>
+            <span>Votre nom</span>
+            <input name="name" type="text" autocomplete="name" placeholder="Jane Dupont" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" placeholder="vous@domaine.fr" required>
+          </label>
+          <label>
+            <span>Votre besoin</span>
+            <textarea name="message" rows="6" placeholder="Une landing page tout de suite, un site immersif ensuite…" required></textarea>
+          </label>
+           <!-- Redirige après succès -->
+          <input type="hidden" name="_redirect" value="http://127.0.0.1:5500/index.html/#contact" />
+          <!-- <input type="hidden" name="source" value="Landing KodennArt" /> -->
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+            <button class="cta" type="submit">Envoyer la demande</button>
+            <p class="note" id="formMsg" aria-live="polite"></p>
+            <a class="ghost" href="mailto:kodennart@gmail.com">Ou écrire un email</a>
+            <span class="note">Aucune prospection, aucune revente de données.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrapper">
+      <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap">
+        <small>© <span id="year"></span> KodennArt — Yann Cotard • SIRET  91 972 267 800 019</small>
+        <small><a href="mentionsLegales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gestion du bandeau cookies RGPD
+(function(){
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const refuseBtn = document.getElementById('cookie-refuse');
+  const choice = localStorage.getItem('cookie-consent');
+
+  // Affiche le bandeau si pas encore de choix
+  if(!choice){ banner.style.display = 'block'; }
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent','accepted');
+    banner.style.display = 'none';
+    // Ici tu pourrais activer Google Analytics ou autre script optionnel
+  });
+
+  refuseBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent','refused');
+    banner.style.display = 'none';
+    // Ici tu t'assures de ne charger aucun script tiers
+  });
+})();
+
+  </script>
+
+  <!-- ======= JSON Content to keep it editable without CMS ======= -->
+  <script id="site-data" type="application/json">
+  {
+    "portfolio": [
+      {"title": "À Cœur Joie — Île‑de‑France", "tag": "WordPress/Divi", "href": "https://www.chorales-idf.org/"},
+      {"title": "Bambou d'Or — Restaurant", "tag": "HTML/CSS/JS", "href": "https://www.bambou-dor-paris17.fr/"},
+      {"title": "Parisian Chauffeur", "tag": "SEO & Performance", "href": "https://parisianchauffeur.com/"},
+      {"title": "Prototype 3D", "tag": "Three.js / R&D", "href": "#"}
+    ],
+    "testimonials": [
+      {"quote": "Yann a construit un site clair, rapide et facile à mettre à jour. Très bon suivi.", "author": "Fanja R., À Cœur Joie – IDF"},
+      {"quote": "Créatif et carré. Résultat pro, délais tenus.", "author": "Anne H., Bambou d'Or"}
+    ]
+  }
+ 
+</script>
+
+  <!-- ======= Tiny JS (no dependency) ======= -->
+  <script>
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+    // Current year
+    $('#year').textContent = new Date().getFullYear();
+
+    // Data-driven sections
+    try{
+      const data = JSON.parse($('#site-data').textContent);
+      // Portfolio
+      const grid = $('#portfolioGrid');
+      data.portfolio.forEach(item => {
+        const a = document.createElement('a');
+        a.className = 'thumb'; a.href = item.href; a.target = '_blank'; a.rel = 'noopener';
+        a.innerHTML = `
+          <span class="badge">${item.tag}</span>
+          <svg viewBox="0 0 100 60" role="img" aria-label="${item.title}">
+            <rect x="0" y="0" width="100" height="60" rx="6" fill="none" stroke="currentColor" opacity="0.3"/>
+            <rect x="6" y="6" width="88" height="48" rx="5" fill="currentColor" opacity="0.07"/>
+            <text x="50" y="33" text-anchor="middle" font-size="6" fill="currentColor" opacity="0.9">${item.title}</text>
+          </svg>`;
+        grid.appendChild(a);
+      });
+      // Testimonials
+      const tw = $('#testiWrap');
+      data.testimonials.forEach(t => {
+        const bq = document.createElement('blockquote');
+        bq.innerHTML = `<p>“${t.quote}”</p><footer>— ${t.author}</footer>`;
+        tw.appendChild(bq);
+      });
+    }catch(e){ console.warn('JSON content error', e); }
+
+    // Simple smooth scroll for in-page links
+    $$('a[href^="#"]').forEach(a => a.addEventListener('click', (e)=>{
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }));
+  </script>
+
+  <!-- JSON-LD (basic) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KodennArt",
+    "url": "https://www.kodennart.fr/",
+    "logo": "https://www.kodennart.fr/images/logo-kodennart.svg",
+    "description": "Développeur web créatif à Paris. Sites premium, 3D/Three.js, SEO & performance.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Paris",
+      "addressCountry": "FR"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/yann-cotard/"
+    ]
+  }
+  </script>
+
+  <script>
+document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const msg  = document.getElementById('formMsg');
+  const btn  = form.querySelector('button[type="submit"]');
+  const textarea = form.querySelector('textarea[name="message"]');
+
+  // État "envoi"
+  btn.disabled = true;
+  btn.setAttribute('aria-busy', 'true');
+  msg.textContent = "Envoi en cours…";
+  msg.style.color = "#adc0ff";   // info
+
+  try {
+    const resp = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (resp.ok) {
+      // ✅ Succès : reset uniquement le textarea
+      textarea.value = "";
+      msg.textContent = "Merci ! Votre message a bien été envoyé.";
+      msg.style.color = "#13c296"; // vert succès
+    } else {
+      // ❌ Erreur côté serveur/Formspree
+      msg.textContent = "Oups, l’envoi a échoué. Réessayez ou écrivez à hello@kodennart.fr.";
+      msg.style.color = "#ff6363"; // rouge erreur
+    }
+  } catch (err) {
+    // ❌ Erreur réseau
+    msg.textContent = "Connexion impossible. Vérifiez votre réseau puis réessayez.";
+    msg.style.color = "#ff6363";
+  } finally {
+    // Retour à l’état normal
+    btn.disabled = false;
+    btn.removeAttribute('aria-busy');
+  }
+});
+</script>
+
+
+  </script>
+</body>
+</html>
+
